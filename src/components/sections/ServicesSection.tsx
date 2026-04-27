@@ -6,9 +6,9 @@ import {
   NetworkIcon,
   WifiMeshIcon,
   SecurityIcon,
-  IoTIcon,
   ITSupportIcon,
   ElectricalIcon,
+  ChurchSoundIcon,
 } from "@/components/icons/ServiceIcons";
 
 interface Service {
@@ -26,9 +26,9 @@ const services: Service[] = [
   },
   {
     icon: <WifiMeshIcon />,
-    title: "WiFi Mesh",
+    title: "WiFi Mesh e Automação IoT",
     description:
-      "Cobertura total de internet sem fio com tecnologia mesh para conectividade perfeita em todos os ambientes.",
+      "Cobertura sem fio total com tecnologia mesh e dispositivos conectados que transformam sua casa ou empresa em um ambiente inteligente, eficiente e sempre online.",
   },
   {
     icon: <SecurityIcon />,
@@ -37,10 +37,10 @@ const services: Service[] = [
       "Sistemas completos de câmeras, alarmes e monitoramento 24h para proteção total do seu patrimônio.",
   },
   {
-    icon: <IoTIcon />,
-    title: "Automação IoT",
+    icon: <ChurchSoundIcon />,
+    title: "Projetos de Sonorização",
     description:
-      "Casa e empresa inteligentes com dispositivos conectados para máximo conforto e eficiência energética.",
+      "Pioneiros em manutenção, readequações e projetos de sonorização para igrejas, lojas e grandes eventos. Som profissional que transforma cada ambiente em uma experiência de alto impacto.",
   },
   {
     icon: <ITSupportIcon />,

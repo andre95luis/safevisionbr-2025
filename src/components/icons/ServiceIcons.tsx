@@ -85,3 +85,17 @@ export const ElectricalIcon = () => (
     <line x1="42" y1="44" x2="36" y2="40" stroke="currentColor" strokeWidth="1" strokeDasharray="2,2" />
   </svg>
 );
+
+export const ChurchSoundIcon = () => (
+  <svg className="w-12 h-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="32" y1="4" x2="32" y2="16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <line x1="27" y1="9" x2="37" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M11 33L32 16L53 33" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="rgba(34, 211, 238, 0.08)" />
+    <rect x="13" y="33" width="38" height="22" rx="1" stroke="currentColor" strokeWidth="2" fill="rgba(34, 211, 238, 0.1)" />
+    <path d="M26 55V48C26 44.69 28.69 42 32 42C35.31 42 38 44.69 38 48V55" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M8 38C6 41 6 45 8 48" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+    <path d="M4 35C1 40 1 46 4 51" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+    <path d="M56 38C58 41 58 45 56 48" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+    <path d="M60 35C63 40 63 46 60 51" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+  </svg>
+);

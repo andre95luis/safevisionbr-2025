@@ -149,9 +149,9 @@ const jsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "WiFi Mesh",
+          name: "WiFi Mesh e Automação IoT",
           description:
-            "Cobertura total de internet sem fio com tecnologia mesh para conectividade perfeita.",
+            "Cobertura sem fio total com tecnologia mesh e dispositivos conectados para ambientes inteligentes e eficientes.",
         },
       },
       {
@@ -167,9 +167,9 @@ const jsonLd = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Automação IoT",
+          name: "Projetos de Sonorização",
           description:
-            "Casa e empresa inteligentes com dispositivos conectados para máximo conforto.",
+            "Manutenção, readequações e projetos de sonorização para igrejas, lojas e grandes eventos.",
         },
       },
       {
