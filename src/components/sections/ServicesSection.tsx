@@ -34,7 +34,7 @@ const services: Service[] = [
     icon: <SecurityIcon />,
     title: "Segurança Eletrônica",
     description:
-      "Sistemas completos de câmeras, alarmes e monitoramento 24h para proteção total do seu patrimônio.",
+      "Sistemas completos de câmeras, alarmes e monitoramento 24h para manter seu patrimônio sempre sob controle.",
   },
   {
     icon: <ChurchSoundIcon />,

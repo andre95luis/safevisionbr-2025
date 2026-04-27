@@ -68,7 +68,7 @@ const projects: Project[] = [
   {
     title: "Iluminação + Câmera + Alarme",
     description:
-      "Projeto integrado de segurança completa: iluminação estratégica, câmeras posicionadas para cobertura total e sistema de alarme — proteção em três camadas.",
+      "Projeto integrado de segurança completa: iluminação estratégica, câmeras posicionadas para cobertura total e sistema de alarme — monitoramento em três camadas.",
     tag: "Segurança Completa",
     url: "https://www.instagram.com/p/DJqLeBAJ5gG/",
     gradient: "from-rose-900/60 to-pink-900/40",

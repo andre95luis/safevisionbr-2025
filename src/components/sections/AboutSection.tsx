@@ -91,7 +91,7 @@ export default function AboutSection() {
             Por que escolher a SafeVisionBR?
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            Mais de 5 anos conectando e protegendo empresas e residências em São Paulo.
+            Mais de 5 anos conectando e cuidando de empresas e residências em São Paulo.
           </p>
         </motion.div>
 
@@ -116,7 +116,7 @@ export default function AboutSection() {
             </div>
 
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
-              Tecnologia que protege.{" "}
+              Tecnologia que monitora.{" "}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                 Expertise que tranquiliza.
               </span>
