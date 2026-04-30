@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, Clock } from "lucide-react";
 import { WHATSAPP_QUOTE_LINK } from "@/lib/data";
 
 const contactCards = [
@@ -20,10 +20,10 @@ const contactCards = [
     href: "mailto:contato@safevisionbr.com.br",
   },
   {
-    icon: MapPin,
-    title: "Localização",
-    subtitle: "Nossa região de atuação",
-    value: "São Paulo - SP",
+    icon: Clock,
+    title: "Resposta rápida",
+    subtitle: "Atendimento ágil, sem burocracia",
+    value: "Em até 2 horas",
     href: null,
   },
 ];
@@ -47,8 +47,8 @@ export default function ContactSection() {
             Entre em Contato
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Pronto para transformar seu ambiente com tecnologia de ponta?
-            Entre em contato conosco e descubra como podemos ajudar.
+            Fale com nossa equipe e receba uma proposta personalizada
+            para o seu projeto — sem compromisso.
           </p>
         </motion.div>
 

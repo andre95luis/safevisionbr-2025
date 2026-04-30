@@ -75,9 +75,10 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.25, ease: "easeOut" }}
           >
-            Tudo que você precisa em tecnologia —{" "}
+            Tudo que você precisa em tecnologia.{" "}
+            <br />
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              uma empresa, tudo resolvido.
+              Uma empresa, tudo resolvido.
             </span>
           </motion.h1>
 
@@ -88,8 +89,8 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
           >
-            Câmeras, alarmes, redes, elétrica e suporte de TI para igrejas,
-            empresas e residências em São Paulo.
+            Muito mais que segurança. Conheça todas as soluções que temos
+            para a sua empresa ou residência.
           </motion.p>
 
           {/* CTAs */}
@@ -106,7 +107,7 @@ export default function HeroSection() {
               className="group flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
             >
               <Shield className="w-5 h-5" />
-              Falar sobre meu projeto
+              Solicitar uma proposta
             </a>
 
             <a

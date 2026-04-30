@@ -75,11 +75,11 @@ export default function TestimonialsSection() {
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
-              Confira de perto as avaliações e veja por que{" "}
+              O que nossos clientes dizem
             </span>
             <br />
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent animate-pulse">
-              tantos clientes recomendam!
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+              sobre a Safe Vision BR
             </span>
           </h2>
         </motion.div>

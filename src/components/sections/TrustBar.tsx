@@ -41,8 +41,8 @@ export default function TrustBar() {
   return (
     <section className="border-y border-slate-800/60 bg-slate-900/30 py-6 overflow-hidden">
       <div className="container mx-auto px-6">
-        <p className="text-center text-slate-600 text-xs font-medium tracking-widest uppercase mb-5">
-          Equipamentos das melhores marcas do mercado
+        <p className="text-center text-slate-400 text-xs font-medium tracking-widest uppercase mb-5">
+          Trabalhamos com as melhores marcas do mercado:
         </p>
 
         {/* Scrolling marquee */}
@@ -50,7 +50,7 @@ export default function TrustBar() {
           <motion.div
             className="flex gap-10 shrink-0 pr-10"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+            transition={{ duration: 40, ease: "linear", repeat: Infinity }}
           >
             {[...brands, ...brands].map((brand, i) => (
               <span

@@ -57,7 +57,7 @@ const features = [
   },
   {
     icon: Cpu,
-    title: "Top equipamentos",
+    title: "Equipamentos de alto padrão",
     text: "Marcas líderes do mercado global",
   },
 ];
@@ -175,7 +175,7 @@ export default function AboutSection() {
             <div className="h-px w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 opacity-50" />
 
             <p className="text-slate-500 text-xs text-center leading-relaxed">
-              Resultados reais entregues para clientes em toda a Grande São Paulo
+              Resultados consistentes para clientes em toda a Grande São Paulo
             </p>
           </motion.div>
 
@@ -223,9 +223,9 @@ export default function AboutSection() {
               <MessageCircle className="w-5 h-5 text-green-400" />
             </div>
 
-            <h4 className="text-white font-bold text-lg mb-1">Fale agora</h4>
+            <h4 className="text-white font-bold text-lg mb-1">Atendimento imediato</h4>
             <p className="text-slate-400 text-sm mb-4 flex-1">
-              Resposta em minutos via WhatsApp
+              Retorno ágil via WhatsApp
             </p>
 
             <div className="flex items-center gap-2 text-green-400 text-sm font-semibold group-hover:gap-3 transition-all">

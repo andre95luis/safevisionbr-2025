@@ -6,6 +6,7 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ProjectsCarousel from "@/components/sections/ProjectsCarousel";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
@@ -20,6 +21,7 @@ export default function Home() {
         <AboutSection />
         <ProjectsCarousel />
         <TestimonialsSection />
+        <FAQSection />
         <ContactSection />
       </main>
       <Footer />

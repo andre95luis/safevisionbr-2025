@@ -3,11 +3,13 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import { WHATSAPP_LINK } from "@/lib/data";
 
 const navLinks = [
   { label: "Início", id: "home" },
   { label: "Serviços", id: "services" },
   { label: "Sobre", id: "about" },
+  { label: "FAQ", id: "faq" },
   { label: "Contato", id: "contact" },
 ];
 
@@ -62,6 +64,14 @@ export default function Header() {
                 {label}
               </button>
             ))}
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md shadow-cyan-500/20 whitespace-nowrap"
+            >
+              Solicitar orçamento →
+            </a>
           </div>
 
           <button
