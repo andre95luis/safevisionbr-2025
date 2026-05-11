@@ -21,16 +21,22 @@ const sections = [
 Estes termos são regidos pela legislação brasileira, em especial pelo Código de Defesa do Consumidor (Lei nº 8.078/1990), pelo Marco Civil da Internet (Lei nº 12.965/2014) e pela LGPD (Lei nº 13.709/2018).`,
   },
   {
-    title: "2. Sobre o Site e os Serviços",
-    content: `Este site é operado pela Safe Vision BR — Soluções de Tecnologia Ltda., empresa especializada em:
+    title: "2. Identificação da Empresa e Escopo",
+    content: `Este site é operado por:
 
+Safe Vision BR — Soluções de Tecnologia Ltda.
+CNPJ: 57.340.706/0001-10
+Sede: conforme registro no CNPJ junto à Receita Federal
+E-mail: contato@safevisionbr.com.br
+
+A empresa é especializada em:
 • Segurança eletrônica (câmeras CFTV, alarmes e monitoramento)
 • Cabeamento estruturado e infraestrutura de redes
 • WiFi Mesh corporativo e residencial
 • Automação IoT
 • Suporte de TI e serviços elétricos
 
-As informações publicadas têm caráter exclusivamente informativo e não constituem contrato de prestação de serviços. O estabelecimento de qualquer relação contratual depende de proposta formal aceita por ambas as partes.`,
+As informações publicadas neste site têm caráter exclusivamente informativo e institucional, não constituindo oferta, proposta ou contrato de prestação de serviços. O estabelecimento de qualquer relação contratual depende de proposta comercial formal, elaborada caso a caso e aceita expressamente por ambas as partes mediante instrumento próprio.`,
   },
   {
     title: "3. Uso Adequado",
@@ -57,8 +63,11 @@ As informações publicadas têm caráter exclusivamente informativo e não cons
 
 Não nos responsabilizamos por:
 • Danos decorrentes do uso ou impossibilidade de uso do site;
-• Decisões tomadas com base exclusivamente nas informações publicadas;
-• Falhas técnicas, interrupções ou indisponibilidades causadas por terceiros (provedores de internet, infraestrutura de hospedagem, etc.).`,
+• Decisões tomadas com base exclusivamente nas informações publicadas, uma vez que o site tem caráter meramente informativo;
+• Falhas técnicas, interrupções ou indisponibilidades causadas por terceiros (provedores de internet, infraestrutura de hospedagem, etc.);
+• Conteúdo de sites externos acessados por meio de links disponíveis neste site.
+
+Esta limitação aplica-se exclusivamente ao uso do site institucional e não afeta as responsabilidades assumidas em contratos de prestação de serviços firmados separadamente, os quais são regidos por seus próprios instrumentos e pelo Código de Defesa do Consumidor (Lei nº 8.078/1990).`,
   },
   {
     title: "7. Privacidade e Dados Pessoais",

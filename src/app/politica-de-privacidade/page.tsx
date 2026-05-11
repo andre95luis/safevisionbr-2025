@@ -15,10 +15,17 @@ export const metadata: Metadata = {
 
 const sections = [
   {
-    title: "1. Quem somos",
-    content: `A Safe Vision BR — Soluções de Tecnologia Ltda. é uma empresa especializada em segurança eletrônica, cabeamento estruturado, WiFi Mesh e automação IoT, com sede em São Paulo — SP. Para fins desta Política, somos o Controlador dos dados pessoais coletados por meio deste site.
+    title: "1. Identificação do Controlador",
+    content: `Safe Vision BR — Soluções de Tecnologia Ltda.
+CNPJ: 57.340.706/0001-10
+Sede: conforme registro no CNPJ junto à Receita Federal
+E-mail: contato@safevisionbr.com.br
+Telefone: +55 (11) 96356-1680
 
-Contato do responsável: contato@safevisionbr.com.br`,
+Para fins desta Política, somos o Controlador dos dados pessoais coletados por meio deste site, nos termos do Art. 5º, VI da LGPD.
+
+Encarregado pelo Tratamento de Dados (DPO):
+O Encarregado responsável pelo tratamento de dados pessoais pode ser contactado pelo e-mail: contato@safevisionbr.com.br, com o assunto "LGPD — Encarregado de Dados".`,
   },
   {
     title: "2. Quais dados coletamos",
@@ -43,15 +50,15 @@ Não utilizamos seus dados para marketing não solicitado nem os compartilhamos 
     title: "4. Base legal (LGPD)",
     content: `O tratamento dos dados pessoais se fundamenta nas seguintes bases legais previstas na Lei nº 13.709/2018 (LGPD):
 
-• Consentimento (Art. 7º, I): ao nos contatar voluntariamente pelo WhatsApp ou e-mail, você consente com o uso dos dados fornecidos para responder à sua solicitação.
-• Legítimo interesse (Art. 7º, IX): para análise de performance técnica do site com dados anonimizados.`,
+• Execução de contrato ou procedimentos preliminares (Art. 7º, V): quando você nos contata pelo WhatsApp ou e-mail solicitando orçamento ou suporte, o tratamento dos dados fornecidos é necessário para atender à sua solicitação — configurando procedimento pré-contratual a pedido do titular.
+• Legítimo interesse (Art. 7º, IX): para análise de performance técnica do site com dados anonimizados, visando melhorar a experiência do usuário sem impacto desproporcional sobre sua privacidade.`,
   },
   {
-    title: "5. Compartilhamento de dados",
-    content: `Não vendemos, alugamos nem compartilhamos seus dados pessoais com terceiros, exceto:
+    title: "5. Compartilhamento e Transferência Internacional de Dados",
+    content: `Não vendemos, alugamos nem compartilhamos seus dados pessoais com terceiros para fins comerciais, exceto:
 
-• Vercel Inc.: plataforma de hospedagem deste site, que processa dados de navegação anonimizados para fins de performance. A Vercel segue políticas de privacidade compatíveis com a LGPD e o GDPR.
-• Autoridades competentes: quando exigido por lei ou ordem judicial.`,
+• Vercel Inc. (EUA): plataforma de hospedagem deste site. Dados de navegação anonimizados são processados em servidores localizados nos Estados Unidos, configurando transferência internacional de dados nos termos dos Arts. 33-36 da LGPD. A Vercel adota cláusulas contratuais padrão e está em conformidade com o GDPR, garantindo nível de proteção equivalente ao exigido pela legislação brasileira.
+• Autoridades competentes: quando exigido por lei, regulamento ou ordem judicial, nos limites estritamente necessários.`,
   },
   {
     title: "6. Cookies",
@@ -62,17 +69,20 @@ Não utilizamos seus dados para marketing não solicitado nem os compartilhamos 
     content: `Os dados de contato fornecidos por você são mantidos apenas pelo tempo necessário para atender à sua solicitação. Dados de navegação anonimizados são retidos conforme as políticas da Vercel.`,
   },
   {
-    title: "8. Seus direitos (LGPD)",
-    content: `Em conformidade com a LGPD, você tem direito a:
+    title: "8. Seus Direitos como Titular (LGPD — Art. 18)",
+    content: `Em conformidade com o Art. 18 da LGPD, você tem direito a:
 
-• Confirmar a existência de tratamento dos seus dados;
-• Acessar seus dados pessoais;
-• Corrigir dados incompletos, inexatos ou desatualizados;
-• Solicitar a anonimização, bloqueio ou eliminação de dados desnecessários;
-• Revogar o consentimento a qualquer momento;
-• Obter informações sobre o compartilhamento de dados.
+• Confirmação da existência de tratamento dos seus dados;
+• Acesso aos dados pessoais que mantemos sobre você;
+• Correção de dados incompletos, inexatos ou desatualizados;
+• Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade com a LGPD;
+• Portabilidade dos dados a outro fornecedor de serviço ou produto (Art. 18, V);
+• Eliminação dos dados pessoais tratados com base no consentimento;
+• Informação sobre entidades públicas e privadas com as quais compartilhamos dados;
+• Informação sobre a possibilidade de não fornecer consentimento e as consequências disso;
+• Revisão de decisões tomadas unicamente com base em tratamento automatizado (Art. 20).
 
-Para exercer qualquer um desses direitos, entre em contato pelo e-mail: contato@safevisionbr.com.br. Responderemos em até 15 dias úteis.`,
+Para exercer qualquer um desses direitos, entre em contato com nosso Encarregado pelo e-mail: contato@safevisionbr.com.br com o assunto "LGPD — Direitos do Titular". Responderemos em até 15 dias úteis.`,
   },
   {
     title: "9. Segurança",
