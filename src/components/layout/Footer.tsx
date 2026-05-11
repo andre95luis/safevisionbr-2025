@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   "Câmeras de Segurança",
@@ -33,6 +34,22 @@ export default function Footer() {
               )}
             </span>
           ))}
+        </div>
+
+        <div className="flex justify-center gap-6 mb-4">
+          <Link
+            href="/politica-de-privacidade"
+            className="text-slate-500 text-xs hover:text-slate-300 transition-colors"
+          >
+            Política de Privacidade
+          </Link>
+          <span className="text-slate-700 text-xs">·</span>
+          <Link
+            href="/termos-de-uso"
+            className="text-slate-500 text-xs hover:text-slate-300 transition-colors"
+          >
+            Termos de Uso
+          </Link>
         </div>
 
         <p className="text-slate-600 text-xs">
