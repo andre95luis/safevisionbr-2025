@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LifeBuoy } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import { WHATSAPP_LINK } from "@/lib/data";
 
 const navLinks = [
   { label: "Início", id: "home" },
   { label: "Serviços", id: "services" },
+  { label: "Produtos", id: "produto" },
   { label: "Sobre", id: "about" },
   { label: "FAQ", id: "faq" },
   { label: "Contato", id: "contact" },
@@ -65,6 +67,15 @@ export default function Header() {
               </button>
             ))}
             <a
+              href="https://meajuda.safevisionbr.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-slate-400 hover:text-slate-200 text-sm transition-colors whitespace-nowrap"
+            >
+              <LifeBuoy className="w-4 h-4" />
+              Abrir chamado
+            </a>
+            <a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
@@ -87,21 +98,38 @@ export default function Header() {
           </button>
         </div>
 
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-slate-800">
-            <div className="flex flex-col space-y-4 pt-4">
-              {navLinks.map(({ label, id }) => (
-                <button
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className="text-white hover:text-cyan-400 transition-colors text-left"
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              className="md:hidden border-t border-slate-800 overflow-hidden"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+            >
+              <div className="flex flex-col space-y-4 pt-4 pb-4">
+                {navLinks.map(({ label, id }) => (
+                  <button
+                    key={id}
+                    onClick={() => scrollToSection(id)}
+                    className="text-white hover:text-cyan-400 transition-colors text-left"
+                  >
+                    {label}
+                  </button>
+                ))}
+                <a
+                  href="https://meajuda.safevisionbr.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-slate-400 hover:text-slate-200 text-sm transition-colors"
                 >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+                  <LifeBuoy className="w-4 h-4" />
+                  Abrir chamado
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );

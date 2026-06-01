@@ -8,6 +8,7 @@ import ProjectsCarousel from "@/components/sections/ProjectsCarousel";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
+import ProductSection from "@/components/sections/ProductSection";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <HeroSection />
         <TrustBar />
         <ServicesSection />
+        <ProductSection />
         <AboutSection />
         <ProjectsCarousel />
         <TestimonialsSection />

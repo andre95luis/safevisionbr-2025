@@ -84,24 +84,40 @@ export default function ServicesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } },
+          }}
+        >
+          {services.map((service) => (
             <motion.article
               key={service.title}
-              className="group bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 hover:border-cyan-500/30 hover:bg-slate-800/60 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }}
+              className="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 cursor-default"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+              }}
+              whileHover={{
+                y: -6,
+                borderColor: "rgba(6,182,212,0.35)",
+                backgroundColor: "rgba(30,41,59,0.65)",
+                boxShadow: "0 8px 32px rgba(6,182,212,0.08)",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 22 }}
             >
-              <div className="text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors duration-300">
+              <div className="text-cyan-400 mb-4">
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
               <p className="text-slate-400 text-sm leading-relaxed">{service.description}</p>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           className="text-center mt-16"

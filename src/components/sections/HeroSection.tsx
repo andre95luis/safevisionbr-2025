@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown, Shield, Instagram } from "lucide-react";
 import { WHATSAPP_LINK } from "@/lib/data";
 
@@ -13,6 +13,9 @@ const trustPoints = [
 ];
 
 export default function HeroSection() {
+  const { scrollY } = useScroll();
+  const bgY = useTransform(scrollY, [0, 600], [0, 120]);
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -23,9 +26,15 @@ export default function HeroSection() {
       className="relative min-h-screen flex items-center justify-center"
       aria-label="Início"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-slate-950 to-blue-900/20" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent" />
+      {/* Background com parallax sutil */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-slate-950 to-blue-900/20"
+        style={{ y: bgY }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent"
+        style={{ y: bgY }}
+      />
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -100,25 +109,31 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           >
-            <a
+            <motion.a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40"
+              className="group flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-cyan-500/20"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 32px rgba(6,182,212,0.35)" }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
               <Shield className="w-5 h-5" />
               Solicitar uma proposta
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
               href="https://instagram.com/safevisionbr"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-slate-800/50"
+              className="flex items-center gap-2 text-slate-300 border border-slate-700 px-8 py-4 rounded-full font-semibold"
+              whileHover={{ scale: 1.03, borderColor: "rgba(148,163,184,0.6)", color: "#fff", backgroundColor: "rgba(30,41,59,0.5)" }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
               <Instagram className="w-5 h-5" />
               Ver nosso trabalho
-            </a>
+            </motion.a>
           </motion.div>
 
           {/* Trust points */}
