@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import TrustBar from "@/components/sections/TrustBar";
 import ServicesSection from "@/components/sections/ServicesSection";
+import EnterpriseSection from "@/components/sections/EnterpriseSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ProjectsCarousel from "@/components/sections/ProjectsCarousel";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -19,8 +20,9 @@ export default function Home() {
         <HeroSection />
         <TrustBar />
         <ServicesSection />
-        <ProductSection />
+        <EnterpriseSection />
         <AboutSection />
+        <ProductSection />
         <ProjectsCarousel />
         <TestimonialsSection />
         <FAQSection />

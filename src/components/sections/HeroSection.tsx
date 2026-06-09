@@ -4,15 +4,10 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown, Shield, Instagram } from "lucide-react";
 import { WHATSAPP_LINK } from "@/lib/data";
-
-const trustPoints = [
-  "Atendimento em até 2h",
-  "Garantia de 12 meses",
-  "Do residencial ao corporativo",
-  "Suporte 24/7",
-];
+import { useLanguage } from "@/providers/LanguageProvider";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
   const { scrollY } = useScroll();
   const bgY = useTransform(scrollY, [0, 600], [0, 120]);
 
@@ -26,7 +21,6 @@ export default function HeroSection() {
       className="relative min-h-screen flex items-center justify-center"
       aria-label="Início"
     >
-      {/* Background com parallax sutil */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-slate-950 to-blue-900/20"
         style={{ y: bgY }}
@@ -39,7 +33,6 @@ export default function HeroSection() {
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
 
-          {/* Logo */}
           <motion.div
             className="mb-8 flex justify-center"
             initial={{ opacity: 0, y: 30 }}
@@ -57,8 +50,6 @@ export default function HeroSection() {
             />
           </motion.div>
 
-          {/* Headline */}
-          {/* Badge de credibilidade */}
           <motion.div
             className="flex justify-center mb-6"
             initial={{ opacity: 0, y: 10 }}
@@ -72,9 +63,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <span className="text-slate-500">·</span>
-              <span>Nota 5.0 no Google</span>
-              <span className="text-slate-500">·</span>
-              <span>Mais de uma década de experiência</span>
+              <span>{t.hero.badge}</span>
             </div>
           </motion.div>
 
@@ -84,25 +73,22 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.25, ease: "easeOut" }}
           >
-            Tudo que você precisa em tecnologia.{" "}
+            {t.hero.headline1}{" "}
             <br />
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Uma empresa, tudo resolvido.
+              {t.hero.headline2}
             </span>
           </motion.h1>
 
-          {/* Sub-headline */}
           <motion.p
             className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
           >
-            Muito mais que segurança. Conheça todas as soluções que temos
-            para a sua empresa ou residência.
+            {t.hero.subheadline}
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -119,7 +105,7 @@ export default function HeroSection() {
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
               <Shield className="w-5 h-5" />
-              Solicitar uma proposta
+              {t.hero.ctaPrimary}
             </motion.a>
 
             <motion.a
@@ -132,18 +118,17 @@ export default function HeroSection() {
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
               <Instagram className="w-5 h-5" />
-              Ver nosso trabalho
+              {t.hero.ctaSecondary}
             </motion.a>
           </motion.div>
 
-          {/* Trust points */}
           <motion.div
             className="flex flex-wrap justify-center gap-x-6 gap-y-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
           >
-            {trustPoints.map((point) => (
+            {t.hero.trustPoints.map((point) => (
               <div key={point} className="flex items-center gap-1.5 text-slate-500 text-sm">
                 <span className="w-1 h-1 rounded-full bg-cyan-500" />
                 {point}
@@ -158,7 +143,7 @@ export default function HeroSection() {
         <button
           onClick={() => scrollToSection("services")}
           className="animate-bounce text-slate-500 hover:text-slate-300 transition-colors"
-          aria-label="Ver serviços"
+          aria-label={t.hero.scrollLabel}
           style={{ animationDuration: "2s" }}
         >
           <ChevronDown className="w-6 h-6" />

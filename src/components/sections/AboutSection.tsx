@@ -11,6 +11,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { WHATSAPP_LINK } from "@/lib/data";
+import { useLanguage } from "@/providers/LanguageProvider";
 
 function CountUp({
   target,
@@ -44,42 +45,20 @@ function CountUp({
   );
 }
 
-const features = [
-  {
-    icon: Shield,
-    title: "Garantia total",
-    text: "12 meses em todos os serviços instalados",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Equipe certificada",
-    text: "Técnicos treinados e especializados",
-  },
-  {
-    icon: Cpu,
-    title: "Equipamentos de alto padrão",
-    text: "Marcas líderes do mercado global",
-  },
-];
-
-const stats = [
-  { value: 100, suffix: "+", label: "Clientes atendidos" },
-  { value: 24, suffix: "/7", label: "Suporte" },
-  { value: 5, suffix: "+", label: "Anos" },
-  { value: 100, suffix: "%", label: "Satisfação" },
-];
+const statValues = [100, 24, 5, 100];
+const featureIcons = [Shield, CheckCircle2, Cpu];
 
 const cardBase =
   "rounded-3xl border border-slate-700/50 bg-slate-800/40 backdrop-blur-sm p-6 transition-colors duration-300";
 
 export default function AboutSection() {
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section id="about" className="py-24" aria-label="Sobre a SafeVisionBR">
       <div className="container mx-auto px-6">
-        {/* Título da seção */}
         <motion.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
@@ -88,19 +67,18 @@ export default function AboutSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
-            Por que escolher a SafeVisionBR?
+            {t.about.title}
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-            Mais de 5 anos conectando e cuidando de empresas e residências em São Paulo.
+            {t.about.subtitle}
           </p>
         </motion.div>
 
-        {/* Bento Grid */}
         <div
           ref={ref}
           className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto"
         >
-          {/* Card 1 — Principal (col-span-2) */}
+          {/* Card principal */}
           <motion.div
             className={`${cardBase} md:col-span-2 hover:border-cyan-500/30`}
             initial={{ opacity: 0, y: 24 }}
@@ -111,41 +89,43 @@ export default function AboutSection() {
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center gap-1.5 bg-slate-900/60 border border-slate-700/60 rounded-full px-3 py-1.5">
                 <MapPin className="w-3.5 h-3.5 text-cyan-400" />
-                <span className="text-slate-400 text-xs">São Paulo, SP · Desde 2020</span>
+                <span className="text-slate-400 text-xs">{t.about.location}</span>
               </div>
             </div>
 
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
-              Tecnologia que monitora.{" "}
+              {t.about.cardTitle1}{" "}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Expertise que tranquiliza.
+                {t.about.cardTitle2}
               </span>
             </h3>
 
             <p className="text-slate-400 mb-8 leading-relaxed">
-              Combinamos expertise técnica com atendimento personalizado para entregar
-              soluções sob medida — do cabeamento estruturado à automação IoT completa.
+              {t.about.cardDesc}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {features.map(({ icon: Icon, title, text }) => (
-                <div
-                  key={title}
-                  className="flex flex-col gap-3 bg-slate-900/50 border border-slate-700/40 rounded-2xl p-4"
-                >
-                  <div className="w-8 h-8 rounded-xl bg-cyan-500/10 flex items-center justify-center">
-                    <Icon className="w-4 h-4 text-cyan-400" />
+              {t.about.features.map(({ title, text }, idx) => {
+                const Icon = featureIcons[idx];
+                return (
+                  <div
+                    key={title}
+                    className="flex flex-col gap-3 bg-slate-900/50 border border-slate-700/40 rounded-2xl p-4"
+                  >
+                    <div className="w-8 h-8 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+                      <Icon className="w-4 h-4 text-cyan-400" />
+                    </div>
+                    <div>
+                      <p className="text-white text-sm font-semibold mb-0.5">{title}</p>
+                      <p className="text-slate-400 text-xs leading-snug">{text}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white text-sm font-semibold mb-0.5">{title}</p>
-                    <p className="text-slate-400 text-xs leading-snug">{text}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
 
-          {/* Card 2 — Stats (col-span-1, row-span-2) */}
+          {/* Card de stats */}
           <motion.div
             className="md:row-span-2 rounded-3xl border border-cyan-800/30 bg-gradient-to-b from-cyan-950/50 to-blue-950/40 backdrop-blur-sm p-6 flex flex-col gap-4"
             initial={{ opacity: 0, x: 24 }}
@@ -154,32 +134,31 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <p className="text-slate-400 text-xs font-medium tracking-widest uppercase">
-              Nossos números
+              {t.about.statsLabel}
             </p>
 
             <div className="grid grid-cols-2 gap-3 flex-1">
-              {stats.map(({ value, suffix, label }) => (
+              {t.about.stats.map(({ suffix, label }, idx) => (
                 <div
                   key={label}
                   className="bg-slate-900/60 border border-slate-700/40 rounded-2xl p-4 flex flex-col justify-center"
                 >
                   <p className="text-2xl md:text-3xl font-bold text-cyan-400 mb-1 tabular-nums">
-                    <CountUp target={value} suffix={suffix} inView={inView} />
+                    <CountUp target={statValues[idx]} suffix={suffix} inView={inView} />
                   </p>
                   <p className="text-slate-400 text-xs">{label}</p>
                 </div>
               ))}
             </div>
 
-            {/* Barra de destaque */}
             <div className="h-px w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 opacity-50" />
 
             <p className="text-slate-500 text-xs text-center leading-relaxed">
-              Resultados consistentes para clientes em toda a Grande São Paulo
+              {t.about.statsCaption}
             </p>
           </motion.div>
 
-          {/* Card 3 — Google Reviews */}
+          {/* Card Google Reviews */}
           <motion.div
             className={`${cardBase} hover:border-yellow-500/30`}
             initial={{ opacity: 0, y: 24 }}
@@ -189,11 +168,9 @@ export default function AboutSection() {
           >
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0">
-                <span className="text-sm font-bold" style={{ color: "#4285F4" }}>
-                  G
-                </span>
+                <span className="text-sm font-bold" style={{ color: "#4285F4" }}>G</span>
               </div>
-              <span className="text-slate-300 text-sm font-medium">Google Reviews</span>
+              <span className="text-slate-300 text-sm font-medium">{t.about.googleLabel}</span>
             </div>
 
             <div className="flex gap-1 mb-3">
@@ -203,12 +180,10 @@ export default function AboutSection() {
             </div>
 
             <p className="text-4xl font-bold text-white mb-1">5.0</p>
-            <p className="text-slate-500 text-xs leading-relaxed">
-              Baseado em avaliações reais de clientes no Google Maps
-            </p>
+            <p className="text-slate-500 text-xs leading-relaxed">{t.about.googleCaption}</p>
           </motion.div>
 
-          {/* Card 4 — WhatsApp CTA */}
+          {/* Card CTA */}
           <motion.a
             href={WHATSAPP_LINK}
             target="_blank"
@@ -223,14 +198,11 @@ export default function AboutSection() {
               <MessageCircle className="w-5 h-5 text-green-400" />
             </div>
 
-            <h4 className="text-white font-bold text-lg mb-1">Atendimento imediato</h4>
-            <p className="text-slate-400 text-sm mb-4 flex-1">
-              Retorno ágil via WhatsApp
-            </p>
+            <h4 className="text-white font-bold text-lg mb-1">{t.about.whatsappTitle}</h4>
+            <p className="text-slate-400 text-sm mb-4 flex-1">{t.about.whatsappDesc}</p>
 
             <div className="flex items-center gap-2 text-green-400 text-sm font-semibold group-hover:gap-3 transition-all">
-              <span>Solicitar orçamento</span>
-              <span>→</span>
+              <span>{t.about.whatsappCta}</span>
             </div>
           </motion.a>
         </div>

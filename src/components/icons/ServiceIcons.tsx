@@ -86,6 +86,21 @@ export const ElectricalIcon = () => (
   </svg>
 );
 
+export const MonitoringIcon = () => (
+  <svg className="w-12 h-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="8" y="12" width="48" height="32" rx="4" stroke="currentColor" strokeWidth="2" fill="rgba(34, 211, 238, 0.1)" />
+    <rect x="12" y="16" width="40" height="24" rx="2" fill="rgba(34, 211, 238, 0.05)" stroke="currentColor" strokeWidth="1" />
+    <circle cx="32" cy="28" r="7" stroke="currentColor" strokeWidth="2" fill="rgba(34, 211, 238, 0.15)" />
+    <circle cx="32" cy="28" r="3" fill="currentColor" />
+    <circle cx="32" cy="28" r="1.5" fill="rgba(34, 211, 238, 0.3)" />
+    <circle cx="44" cy="18" r="3" fill="rgba(239, 68, 68, 0.8)" />
+    <circle cx="44" cy="18" r="1.5" fill="rgb(239, 68, 68)" />
+    <rect x="24" y="44" width="16" height="4" rx="2" stroke="currentColor" strokeWidth="1.5" fill="rgba(34, 211, 238, 0.1)" />
+    <line x1="20" y1="58" x2="44" y2="58" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <line x1="32" y1="48" x2="32" y2="58" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
 export const ChurchSoundIcon = () => (
   <svg className="w-12 h-12" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <line x1="32" y1="4" x2="32" y2="16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

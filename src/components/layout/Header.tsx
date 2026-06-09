@@ -5,17 +5,40 @@ import Image from "next/image";
 import { Menu, X, LifeBuoy } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { WHATSAPP_LINK } from "@/lib/data";
+import { useLanguage } from "@/providers/LanguageProvider";
+import type { Locale } from "@/providers/LanguageProvider";
 
-const navLinks = [
-  { label: "Início", id: "home" },
-  { label: "Serviços", id: "services" },
-  { label: "Produtos", id: "produto" },
-  { label: "Sobre", id: "about" },
-  { label: "FAQ", id: "faq" },
-  { label: "Contato", id: "contact" },
-];
+function LanguageSwitcher() {
+  const { locale, setLocale } = useLanguage();
+
+  const flags: { code: Locale; flag: string; label: string }[] = [
+    { code: "pt", flag: "🇧🇷", label: "PT" },
+    { code: "en", flag: "🇺🇸", label: "EN" },
+  ];
+
+  return (
+    <div className="flex items-center gap-0.5 bg-slate-800/60 border border-slate-700/50 rounded-full px-1 py-1">
+      {flags.map(({ code, flag, label }) => (
+        <button
+          key={code}
+          onClick={() => setLocale(code)}
+          className={`flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full transition-all duration-200 ${
+            locale === code
+              ? "bg-cyan-500 text-white shadow-sm"
+              : "text-slate-400 hover:text-slate-200"
+          }`}
+          aria-label={`Switch to ${label}`}
+        >
+          <span className="text-sm leading-none">{flag}</span>
+          <span>{label}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export default function Header() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -56,12 +79,12 @@ export default function Header() {
             />
           </button>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map(({ label, id }) => (
+          <div className="hidden md:flex items-center space-x-6">
+            {t.header.nav.map(({ label, id }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className="text-white hover:text-cyan-400 transition-colors"
+                className="text-white hover:text-cyan-400 transition-colors text-sm"
               >
                 {label}
               </button>
@@ -73,15 +96,16 @@ export default function Header() {
               className="flex items-center gap-1.5 text-slate-400 hover:text-slate-200 text-sm transition-colors whitespace-nowrap"
             >
               <LifeBuoy className="w-4 h-4" />
-              Abrir chamado
+              {t.header.ticket}
             </a>
+            <LanguageSwitcher />
             <a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md shadow-cyan-500/20 whitespace-nowrap"
             >
-              Solicitar orçamento →
+              {t.header.cta}
             </a>
           </div>
 
@@ -108,7 +132,7 @@ export default function Header() {
               transition={{ duration: 0.25, ease: "easeInOut" }}
             >
               <div className="flex flex-col space-y-4 pt-4 pb-4">
-                {navLinks.map(({ label, id }) => (
+                {t.header.nav.map(({ label, id }) => (
                   <button
                     key={id}
                     onClick={() => scrollToSection(id)}
@@ -124,8 +148,11 @@ export default function Header() {
                   className="flex items-center gap-1.5 text-slate-400 hover:text-slate-200 text-sm transition-colors"
                 >
                   <LifeBuoy className="w-4 h-4" />
-                  Abrir chamado
+                  {t.header.ticket}
                 </a>
+                <div className="pt-1">
+                  <LanguageSwitcher />
+                </div>
               </div>
             </motion.div>
           )}

@@ -1,16 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-
-const services = [
-  "Câmeras de Segurança",
-  "Redes de Computadores",
-  "Sonorização Ambiente",
-  "Monitoramento",
-  "Central de Alarmes",
-  "WiFi Corporativo",
-];
+import { useLanguage } from "@/providers/LanguageProvider";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-slate-950 border-t border-slate-800 py-8">
       <div className="container mx-auto px-6 text-center">
@@ -26,10 +22,10 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 mb-6">
-          {services.map((service, i) => (
+          {t.footer.services.map((service, i) => (
             <span key={service} className="flex items-center gap-3">
               <span className="text-slate-400 text-sm">{service}</span>
-              {i < services.length - 1 && (
+              {i < t.footer.services.length - 1 && (
                 <span className="text-slate-700 text-xs">·</span>
               )}
             </span>
@@ -41,20 +37,18 @@ export default function Footer() {
             href="/politica-de-privacidade"
             className="text-slate-500 text-xs hover:text-slate-300 transition-colors"
           >
-            Política de Privacidade
+            {t.footer.privacy}
           </Link>
           <span className="text-slate-700 text-xs">·</span>
           <Link
             href="/termos-de-uso"
             className="text-slate-500 text-xs hover:text-slate-300 transition-colors"
           >
-            Termos de Uso
+            {t.footer.terms}
           </Link>
         </div>
 
-        <p className="text-slate-600 text-xs">
-          © 2025 Safe Vision BR – Soluções de Tecnologia Ltda. · Todos os direitos reservados.
-        </p>
+        <p className="text-slate-600 text-xs">{t.footer.copyright}</p>
       </div>
     </footer>
   );
