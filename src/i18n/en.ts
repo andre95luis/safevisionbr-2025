@@ -20,10 +20,10 @@ export const en: Dict = {
     headline1: "Full-scope technology.",
     headline2: "For any environment.",
     subheadline:
-      "From structured cabling to electronic security, from electrical to IoT automation — custom projects from start to finish in São Paulo.",
+      "Security cameras, IT support, WiFi, electrical and IoT automation — custom projects for any environment.",
     trustPoints: [
       "Custom projects from start to finish",
-      "Dell, Cisco & Ubiquiti certified",
+      "In-house certified team",
       "24/7 monitoring & support",
       "From schools to multinationals",
     ],
@@ -136,30 +136,43 @@ export const en: Dict = {
     badge: "Our Products",
     title: "Only Safe has it.",
     subtitle:
-      "We develop our own solutions to solve problems the market hasn't solved yet.",
-    whyTitle: "Why PorteiroBot?",
-    howTitle: "How it works",
-    cta: "Discover PorteiroBot →",
-    features: [
-      "Direct WhatsApp notification to the resident",
-      "QR Code at the entrance — no app required",
-      "Delivery only happens with prior authorization",
-      "Multi-building panel in a single account",
-    ],
-    steps: [
+      "Problems no one solved? We turned them into products.",
+    items: [
       {
-        label: "Delivery arrives",
-        description:
-          "Scans the QR Code or accesses the building's link from their phone",
+        name: "PorteiroBot",
+        tagline: "Digital doorman for condominiums",
+        features: [
+          "Direct WhatsApp notification to the resident",
+          "QR Code at the entrance — no app required",
+          "Delivery only with prior authorization",
+          "Multi-building panel",
+        ],
+        cta: "Discover PorteiroBot →",
+        url: "https://porteirobot.safevisionbr.com.br",
       },
       {
-        label: "Locates the resident",
-        description: "Searches by apartment number or resident name",
+        name: "Agenda Pra Mim",
+        tagline: "Space booking without conflicts",
+        features: [
+          "Automatically detects occupied time slots",
+          "One-tap email approval",
+          "Centralized multi-location management",
+          "Works on any smartphone",
+        ],
+        cta: "Discover Agenda Pra Mim →",
+        url: "https://agendapramim.safevisionbr.com.br",
       },
       {
-        label: "Resident authorizes",
-        description:
-          "Receives the WhatsApp notification and grants access from their phone",
+        name: "Cota Pra Mim",
+        tagline: "Professional quotes by voice with AI",
+        features: [
+          "Speak the quote and AI builds the PDF",
+          "Document ready in under 30 seconds",
+          "Share directly via WhatsApp",
+          "Free plan to get started",
+        ],
+        cta: "Discover Cota Pra Mim →",
+        url: "https://cotapramim.safevisionbr.com.br",
       },
     ],
   },

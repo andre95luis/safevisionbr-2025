@@ -21,6 +21,14 @@ export interface ProductStep {
   description: string;
 }
 
+export interface ProductItem {
+  name: string;
+  tagline: string;
+  features: string[];
+  cta: string;
+  url: string;
+}
+
 export interface AboutFeature {
   title: string;
   text: string;
@@ -81,11 +89,7 @@ export interface Dict {
     badge: string;
     title: string;
     subtitle: string;
-    whyTitle: string;
-    howTitle: string;
-    cta: string;
-    features: string[];
-    steps: ProductStep[];
+    items: ProductItem[];
   };
   about: {
     title: string;

@@ -20,10 +20,10 @@ export const pt: Dict = {
     headline1: "Tecnologia completa",
     headline2: "para qualquer ambiente.",
     subheadline:
-      "Do cabeamento à segurança eletrônica, da elétrica à automação IoT — projetos sob medida com começo e fim em São Paulo.",
+      "Câmeras de segurança, TI, WiFi, elétrica e automação IoT — projetos sob medida para qualquer ambiente.",
     trustPoints: [
       "Projetos sob medida com começo e fim",
-      "Equipe certificada Dell, Cisco & Ubiquiti",
+      "Equipe própria e certificada",
       "Monitoramento e suporte 24/7",
       "Da escola à multinacional",
     ],
@@ -136,30 +136,43 @@ export const pt: Dict = {
     badge: "Nossos Produtos",
     title: "Só a Safe tem.",
     subtitle:
-      "Desenvolvemos nossas próprias soluções para resolver problemas que o mercado ainda não resolveu.",
-    whyTitle: "Por que o PorteiroBot?",
-    howTitle: "Como funciona",
-    cta: "Conhecer o PorteiroBot →",
-    features: [
-      "Notificação direto no WhatsApp do morador",
-      "QR Code na portaria — sem aplicativo necessário",
-      "Entrega só acontece com autorização prévia",
-      "Painel multi-condomínio em uma única conta",
-    ],
-    steps: [
+      "Problemas que ninguém resolveu? A gente transformou em produto.",
+    items: [
       {
-        label: "Entregador chega",
-        description:
-          "Escaneia o QR Code ou acessa o link do condomínio pelo celular",
+        name: "PorteiroBot",
+        tagline: "Portaria digital para condomínios",
+        features: [
+          "Notificação direto no WhatsApp do morador",
+          "QR Code na portaria — sem aplicativo",
+          "Entrega só com autorização prévia",
+          "Painel multi-condomínio",
+        ],
+        cta: "Conhecer o PorteiroBot →",
+        url: "https://porteirobot.safevisionbr.com.br",
       },
       {
-        label: "Localiza o morador",
-        description: "Busca por número do apartamento ou nome do morador",
+        name: "Agenda Pra Mim",
+        tagline: "Reserva de espaços sem conflito",
+        features: [
+          "Detecta horários ocupados automaticamente",
+          "Aprovação com um toque por e-mail",
+          "Gestão multi-local centralizada",
+          "Funciona em qualquer celular",
+        ],
+        cta: "Conhecer o Agenda Pra Mim →",
+        url: "https://agendapramim.safevisionbr.com.br",
       },
       {
-        label: "Morador autoriza",
-        description:
-          "Recebe a notificação no WhatsApp e libera a entrada pelo celular",
+        name: "Cota Pra Mim",
+        tagline: "Cotações profissionais por voz com IA",
+        features: [
+          "Fale o orçamento e a IA monta o PDF",
+          "Documento pronto em menos de 30 segundos",
+          "Compartilhe direto pelo WhatsApp",
+          "Plano gratuito para começar",
+        ],
+        cta: "Conhecer o Cota Pra Mim →",
+        url: "https://cotapramim.safevisionbr.com.br",
       },
     ],
   },
