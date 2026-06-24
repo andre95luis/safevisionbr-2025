@@ -178,9 +178,9 @@ export const pt: Dict = {
   },
 
   about: {
-    title: "Por que empresas escolhem a SafeVisionBR?",
+    title: "Você não quer só tecnologia. Quer uma parceira de verdade.",
     subtitle:
-      "Mais de 5 anos entregando soluções de TI com SLA definido para empresas em São Paulo.",
+      "Há anos entregando soluções de TI com SLA definido para empresas em São Paulo.",
     location: "São Paulo, SP · Desde 2020",
     cardTitle1: "Tecnologia que garante",
     cardTitle2: "continuidade operacional.",

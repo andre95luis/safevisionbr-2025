@@ -178,9 +178,9 @@ export const en: Dict = {
   },
 
   about: {
-    title: "Why enterprises choose SafeVisionBR?",
+    title: "You don't just want technology. You want a real partner.",
     subtitle:
-      "Over 5 years delivering managed IT solutions with defined SLA for businesses in São Paulo.",
+      "Years of delivering managed IT solutions with defined SLA for businesses in São Paulo.",
     location: "São Paulo, SP · Since 2020",
     cardTitle1: "Technology that ensures",
     cardTitle2: "operational continuity.",
