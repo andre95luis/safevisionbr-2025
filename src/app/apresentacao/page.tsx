@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useScroll, useTransform, motion } from "motion/react";
+import { useScroll, useTransform, motion, type Variants } from "motion/react";
 import {
   Cable,
   Wifi,
@@ -184,12 +184,12 @@ const services = [
 
 // ── Animations ───────────────────────────────────────────────────
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: "easeOut" } },
 };
 
-const stagger = (delay = 0.1) => ({
+const stagger = (delay = 0.1): Variants => ({
   hidden: {},
   visible: { transition: { staggerChildren: delay } },
 });

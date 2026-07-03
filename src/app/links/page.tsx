@@ -12,7 +12,7 @@ import {
   Facebook,
   MessageCircle,
 } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 
 const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=5511963561680&text=Ol%C3%A1!%20Vim%20pelo%20cart%C3%A3o%20de%20visita%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os.&type=phone_number&app_absent=0";
@@ -64,12 +64,12 @@ const links = [
   },
 ];
 
-const stagger = {
+const stagger: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.3 } },
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
