@@ -40,7 +40,7 @@ export default function ServicesSection() {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" as const }}
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
@@ -67,7 +67,7 @@ export default function ServicesSection() {
               className="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 cursor-default"
               variants={{
                 hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
               }}
               whileHover={{
                 y: -6,
@@ -90,7 +90,7 @@ export default function ServicesSection() {
           className="text-center mt-16"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" as const }}
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className="inline-flex items-center bg-gradient-to-r from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8">

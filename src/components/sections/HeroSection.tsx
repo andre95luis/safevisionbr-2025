@@ -37,7 +37,7 @@ export default function HeroSection() {
             className="mb-8 flex justify-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 1, ease: "easeOut" as const }}
           >
             <Image
               src="/Logo Safe Vision-png-menor-branco-03.png"
@@ -54,7 +54,7 @@ export default function HeroSection() {
             className="flex justify-center mb-6"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" as const }}
           >
             <div className="flex items-center gap-2 border border-slate-700/60 bg-slate-800/50 backdrop-blur-sm rounded-full px-4 py-2 text-sm text-slate-300">
               <div className="flex">
@@ -71,7 +71,7 @@ export default function HeroSection() {
             className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.25, ease: "easeOut" }}
+            transition={{ duration: 1, delay: 0.25, ease: "easeOut" as const }}
           >
             {t.hero.headline1}{" "}
             <br />
@@ -84,7 +84,7 @@ export default function HeroSection() {
             className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 1, delay: 0.4, ease: "easeOut" as const }}
           >
             {t.hero.subheadline}
           </motion.p>
@@ -93,7 +93,7 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut" as const }}
           >
             <motion.a
               href={WHATSAPP_LINK}

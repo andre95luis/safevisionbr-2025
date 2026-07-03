@@ -19,7 +19,7 @@ export default function EnterpriseSection() {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: "easeOut" as const }}
           viewport={{ once: true }}
         >
           <div className="flex justify-center mb-4">
@@ -49,7 +49,7 @@ export default function EnterpriseSection() {
               }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" as const }}
               viewport={{ once: true }}
               whileHover={{ y: -4, transition: { type: "spring", stiffness: 300, damping: 22 } }}
             >

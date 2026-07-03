@@ -186,7 +186,7 @@ const services = [
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: "easeOut" as const } },
 };
 
 const stagger = (delay = 0.1): Variants => ({
@@ -208,7 +208,7 @@ function InView({
       className={className}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.65, ease: "easeOut", delay }}
+      transition={{ duration: 0.65, ease: "easeOut" as const, delay }}
       viewport={{ once: true, amount: 0.2 }}
     >
       {children}

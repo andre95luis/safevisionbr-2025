@@ -17,7 +17,7 @@ export default function ProductSection() {
           className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: "easeOut" as const }}
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
@@ -47,7 +47,7 @@ export default function ProductSection() {
               className="group bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 flex flex-col cursor-pointer"
               variants={{
                 hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
               }}
               whileHover={{
                 y: -6,
