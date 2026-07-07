@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import "./globals.css";
 
@@ -203,6 +204,7 @@ export default function RootLayout({
           {children}
         </LanguageProvider>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
