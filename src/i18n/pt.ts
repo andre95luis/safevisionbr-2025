@@ -319,6 +319,6 @@ export const pt: Dict = {
     privacy: "Política de Privacidade",
     terms: "Termos de Uso",
     copyright:
-      "© 2025 Safe Vision BR – Soluções de Tecnologia Ltda. · Todos os direitos reservados.",
+      "Safe Vision BR – Soluções de Tecnologia Ltda. · Todos os direitos reservados.",
   },
 };

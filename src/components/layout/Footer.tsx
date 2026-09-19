@@ -48,7 +48,7 @@ export default function Footer() {
           </Link>
         </div>
 
-        <p className="text-slate-600 text-xs">{t.footer.copyright}</p>
+        <p className="text-slate-600 text-xs">© {new Date().getFullYear()} {t.footer.copyright}</p>
       </div>
     </footer>
   );

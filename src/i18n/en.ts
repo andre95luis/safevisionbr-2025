@@ -318,6 +318,6 @@ export const en: Dict = {
     privacy: "Privacy Policy",
     terms: "Terms of Use",
     copyright:
-      "© 2025 Safe Vision BR – Technology Solutions Ltd. · All rights reserved.",
+      "Safe Vision BR – Technology Solutions Ltd. · All rights reserved.",
   },
 };
