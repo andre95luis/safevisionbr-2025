@@ -104,7 +104,7 @@ export default function TermosDeUso() {
           </Link>
         </div>
 
-        <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold mb-2 text-cyan-400">
           Termos de Uso
         </h1>
         <p className="text-slate-400 text-sm mb-10">

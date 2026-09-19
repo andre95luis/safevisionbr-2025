@@ -49,7 +49,7 @@ const statValues = [100, 24, 5, 100];
 const featureIcons = [Shield, CheckCircle2, Cpu];
 
 const cardBase =
-  "rounded-3xl border border-slate-700/50 bg-slate-800/40 backdrop-blur-sm p-6 transition-colors duration-300";
+  "rounded-3xl border border-slate-700/50 bg-slate-800/40 p-6 transition-colors duration-300";
 
 export default function AboutSection() {
   const { t } = useLanguage();
@@ -61,12 +61,12 @@ export default function AboutSection() {
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-cyan-400 mb-4">
             {t.about.title}
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg">
@@ -81,8 +81,8 @@ export default function AboutSection() {
           {/* Card principal */}
           <motion.div
             className={`${cardBase} md:col-span-2 hover:border-cyan-500/30`}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
@@ -95,7 +95,7 @@ export default function AboutSection() {
 
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
               {t.about.cardTitle1}{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              <span className="text-cyan-400">
                 {t.about.cardTitle2}
               </span>
             </h3>
@@ -127,9 +127,9 @@ export default function AboutSection() {
 
           {/* Card de stats */}
           <motion.div
-            className="md:row-span-2 rounded-3xl border border-cyan-800/30 bg-gradient-to-b from-cyan-950/50 to-blue-950/40 backdrop-blur-sm p-6 flex flex-col gap-4"
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="md:row-span-2 rounded-3xl border border-cyan-800/30 bg-cyan-950/40 p-6 flex flex-col gap-4"
+            initial={{ opacity: 0, x: 24, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
@@ -151,7 +151,7 @@ export default function AboutSection() {
               ))}
             </div>
 
-            <div className="h-px w-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 opacity-50" />
+            <div className="h-px w-full rounded-full bg-cyan-500 opacity-50" />
 
             <p className="text-slate-500 text-xs text-center leading-relaxed">
               {t.about.statsCaption}
@@ -161,8 +161,8 @@ export default function AboutSection() {
           {/* Card Google Reviews */}
           <motion.div
             className={`${cardBase} hover:border-yellow-500/30`}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
@@ -188,9 +188,9 @@ export default function AboutSection() {
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-3xl border border-green-800/40 bg-gradient-to-br from-green-950/50 to-emerald-900/30 backdrop-blur-sm p-6 flex flex-col transition-all duration-300 hover:border-green-500/50 hover:from-green-950/70 hover:to-emerald-900/50 group cursor-pointer"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="rounded-3xl border border-green-800/40 bg-green-950/40 p-6 flex flex-col transition-all duration-300 hover:border-green-500/50 hover:bg-green-950/60 group cursor-pointer"
+            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >

@@ -1,10 +1,50 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown, Shield, Instagram } from "lucide-react";
 import { WHATSAPP_LINK } from "@/lib/data";
 import { useLanguage } from "@/providers/LanguageProvider";
+
+function PainTicker() {
+  const { t } = useLanguage();
+  const [i, setI] = useState(0);
+  const pains = t.hero.pains;
+  useEffect(() => {
+    const id = setInterval(() => setI((n) => (n + 1) % pains.length), 3400);
+    return () => clearInterval(id);
+  }, [pains.length]);
+
+  return (
+    <div className="mb-8 mx-auto max-w-2xl border border-slate-700/60 bg-slate-900/60 rounded-2xl px-6 py-5">
+      <p className="text-slate-500 text-sm mb-2">{t.hero.painLabel}</p>
+      <div className="relative h-[5.5rem] md:h-8" aria-live="polite">
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={`${t.hero.painLabel}-${i}`}
+            className="absolute inset-0 text-white text-lg md:text-xl font-medium"
+            initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
+          >
+            {pains[i]}
+          </motion.p>
+        </AnimatePresence>
+      </div>
+      <motion.p
+        className="mt-3 flex items-center justify-center gap-2 text-cyan-400 font-semibold"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+      >
+        <Shield className="w-4 h-4" />
+        {t.hero.painSolve}
+      </motion.p>
+    </div>
+  );
+}
 
 export default function HeroSection() {
   const { t } = useLanguage();
@@ -18,15 +58,11 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center"
+      className="relative min-h-screen flex items-center justify-center pt-24 pb-24 md:pb-32"
       aria-label="Início"
     >
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-slate-950 to-blue-900/20"
-        style={{ y: bgY }}
-      />
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent"
+        className="absolute inset-0 bg-slate-950"
         style={{ y: bgY }}
       />
 
@@ -34,17 +70,17 @@ export default function HeroSection() {
         <div className="max-w-4xl mx-auto">
 
           <motion.div
-            className="mb-8 flex justify-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" as const }}
+            className="mb-5 flex justify-center"
+            initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
           >
             <Image
               src="/Logo Safe Vision-png-menor-branco-03.png"
               alt="Safe Vision BR — Segurança Eletrônica e Automação IoT"
               width={400}
               height={312}
-              className="h-44 md:h-64 w-auto"
+              className="h-28 md:h-40 w-auto"
               style={{ width: "auto" }}
               priority
             />
@@ -52,11 +88,11 @@ export default function HeroSection() {
 
           <motion.div
             className="flex justify-center mb-6"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" as const }}
+            initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] as const }}
           >
-            <div className="flex items-center gap-2 border border-slate-700/60 bg-slate-800/50 backdrop-blur-sm rounded-full px-4 py-2 text-sm text-slate-300">
+            <div className="flex items-center gap-2 border border-slate-700/60 bg-slate-800/50 rounded-full px-4 py-2 text-sm text-slate-300">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-yellow-400 text-xs">★</span>
@@ -69,37 +105,45 @@ export default function HeroSection() {
 
           <motion.h1
             className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.25, ease: "easeOut" as const }}
+            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] as const }}
           >
             {t.hero.headline1}{" "}
             <br />
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-cyan-400">
               {t.hero.headline2}
             </span>
           </motion.h1>
 
           <motion.p
-            className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: "easeOut" as const }}
+            className="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
           >
             {t.hero.subheadline}
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeOut" as const }}
+            transition={{ duration: 1, delay: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
+          >
+            <PainTicker />
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10"
+            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
           >
             <motion.a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-cyan-500/20"
+              className="group flex items-center gap-2 bg-cyan-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-cyan-500/20"
               whileHover={{ scale: 1.05, boxShadow: "0 0 32px rgba(6,182,212,0.35)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
@@ -139,7 +183,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2">
         <button
           onClick={() => scrollToSection("services")}
           className="animate-bounce text-slate-500 hover:text-slate-300 transition-colors"

@@ -67,18 +67,18 @@ export default function TestimonialsSection() {
     <section className="py-20 bg-slate-950" aria-label="Avaliações de clientes">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="text-cyan-400">
               O que nossos clientes dizem
             </span>
             <br />
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="text-cyan-400">
               sobre a Safe Vision BR
             </span>
           </h2>

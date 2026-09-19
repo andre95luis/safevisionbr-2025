@@ -15,12 +15,12 @@ export default function ProductSection() {
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" as const }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-cyan-400">
             {t.product.title}
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -46,8 +46,8 @@ export default function ProductSection() {
               rel="noopener noreferrer"
               className="group bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 flex flex-col cursor-pointer"
               variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+                hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
               }}
               whileHover={{
                 y: -6,

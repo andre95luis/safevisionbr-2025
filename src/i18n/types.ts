@@ -66,6 +66,9 @@ export interface Dict {
     ctaPrimary: string;
     ctaSecondary: string;
     scrollLabel: string;
+    painLabel: string;
+    pains: string[];
+    painSolve: string;
   };
   trustBar: {
     label: string;

@@ -30,6 +30,16 @@ export const pt: Dict = {
     ctaPrimary: "Solicitar proposta",
     ctaSecondary: "Ver nosso trabalho",
     scrollLabel: "Ver serviços",
+    painLabel: "Já passou por isso?",
+    pains: [
+      "A câmera não gravou justo quando você precisou da imagem?",
+      "A rede cai e a operação inteira para?",
+      "O Wi-Fi não chega em todos os cantos?",
+      "O som falha na hora que mais importa?",
+      "Cada problema de TI vira um chamado diferente?",
+      "A instalação elétrica te deixa inseguro?",
+    ],
+    painSolve: "Aqui a gente resolve.",
   },
 
   trustBar: {

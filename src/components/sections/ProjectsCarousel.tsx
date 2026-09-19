@@ -9,7 +9,6 @@ interface Project {
   description: string;
   tag: string;
   url: string;
-  gradient: string;
   iconBg: string;
   icon: string;
 }
@@ -21,7 +20,6 @@ const projects: Project[] = [
       "Atualização e manutenção completa em sistema de vigilância HD — câmeras recalibradas, cabos verificados e gravador otimizado para máximo desempenho e imagem nítida.",
     tag: "CFTV",
     url: "https://www.instagram.com/p/DW_WDenNFwH/",
-    gradient: "from-cyan-900/60 to-blue-900/40",
     iconBg: "bg-cyan-500/20",
     icon: "📷",
   },
@@ -31,7 +29,6 @@ const projects: Project[] = [
       "Manutenção no sistema de sonorização completo de uma igreja — equalização, revisão de cabeamento e garantia de som cristalino em todos os ambientes do templo.",
     tag: "Sonorização",
     url: "https://www.instagram.com/p/DW6Jy_ejSU2/",
-    gradient: "from-violet-900/60 to-purple-900/40",
     iconBg: "bg-violet-500/20",
     icon: "🔊",
   },
@@ -41,7 +38,6 @@ const projects: Project[] = [
       "Readequação total da infraestrutura de rede corporativa com organização de rack, certificação dos pontos e manutenção preventiva do sistema de câmeras.",
     tag: "Rede + CFTV",
     url: "https://www.instagram.com/p/DUp9qpwDaLk/",
-    gradient: "from-emerald-900/60 to-teal-900/40",
     iconBg: "bg-emerald-500/20",
     icon: "🌐",
   },
@@ -51,7 +47,6 @@ const projects: Project[] = [
       "Instalação de câmera fisheye de última geração — visão 360° sem pontos cegos. Porque o compromisso é sempre escolher a melhor solução para cada local do cliente.",
     tag: "CFTV Avançado",
     url: "https://www.instagram.com/p/DVYPY6LjWR_/",
-    gradient: "from-orange-900/60 to-amber-900/40",
     iconBg: "bg-orange-500/20",
     icon: "👁️",
   },
@@ -61,7 +56,6 @@ const projects: Project[] = [
       "Explicando na prática como a fotocélula num portão eletrônico funciona, impedindo que ele feche com pessoas ou objetos no caminho — segurança ativa no dia a dia.",
     tag: "Automação",
     url: "https://www.instagram.com/p/DTVPcVGDbqI/",
-    gradient: "from-yellow-900/60 to-orange-900/40",
     iconBg: "bg-yellow-500/20",
     icon: "⚡",
   },
@@ -71,7 +65,6 @@ const projects: Project[] = [
       "Projeto integrado de segurança completa: iluminação estratégica, câmeras posicionadas para cobertura total e sistema de alarme — monitoramento em três camadas.",
     tag: "Segurança Completa",
     url: "https://www.instagram.com/p/DJqLeBAJ5gG/",
-    gradient: "from-rose-900/60 to-pink-900/40",
     iconBg: "bg-rose-500/20",
     icon: "🔒",
   },
@@ -97,8 +90,8 @@ export default function ProjectsCarousel() {
         {/* Header */}
         <motion.div
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
@@ -108,7 +101,7 @@ export default function ProjectsCarousel() {
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white">
               Projetos que{" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              <span className="text-cyan-400">
                 falam por si.
               </span>
             </h2>
@@ -161,13 +154,13 @@ export default function ProjectsCarousel() {
               key={project.url}
               data-card
               className="snap-start shrink-0 w-[85vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw]"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
               viewport={{ once: true }}
             >
               <div
-                className={`h-full rounded-3xl border border-slate-700/50 bg-gradient-to-br ${project.gradient} backdrop-blur-sm p-6 flex flex-col gap-5 hover:border-slate-600/70 transition-colors duration-300`}
+                className={`h-full rounded-3xl border border-slate-700/50 bg-slate-800/50 p-6 flex flex-col gap-5 hover:border-slate-600/70 transition-colors duration-300`}
               >
                 {/* Tag + ícone */}
                 <div className="flex items-center justify-between">

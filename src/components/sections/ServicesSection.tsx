@@ -38,12 +38,12 @@ export default function ServicesSection() {
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" as const }}
+          initial={{ opacity: 0, y: 50, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-cyan-400">
             {t.services.title}
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
@@ -66,8 +66,8 @@ export default function ServicesSection() {
               key={service.title}
               className="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-6 cursor-default"
               variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+                hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
               }}
               whileHover={{
                 y: -6,
@@ -90,10 +90,10 @@ export default function ServicesSection() {
           className="text-center mt-16"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" as const }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="inline-flex items-center bg-gradient-to-r from-slate-800/60 to-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8">
+          <div className="inline-flex items-center bg-slate-800/60 border border-slate-700/50 rounded-2xl p-8">
             <div className="text-center">
               <h3 className="text-2xl font-bold text-white mb-4">
                 {t.services.ctaTitle}
@@ -103,7 +103,7 @@ export default function ServicesSection() {
               </p>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
+                className="bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
               >
                 {t.services.ctaBtn}
               </button>

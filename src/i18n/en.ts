@@ -30,6 +30,16 @@ export const en: Dict = {
     ctaPrimary: "Request a proposal",
     ctaSecondary: "View our work",
     scrollLabel: "View services",
+    painLabel: "Been through this?",
+    pains: [
+      "The camera didn't record right when you needed the footage?",
+      "The network goes down and your whole operation stops?",
+      "The WiFi doesn't reach every corner?",
+      "The sound fails when it matters most?",
+      "Every IT problem turns into a different ticket?",
+      "Does your electrical installation worry you?",
+    ],
+    painSolve: "We fix that here.",
   },
 
   trustBar: {

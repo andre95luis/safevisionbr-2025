@@ -56,7 +56,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isMobileMenuOpen
           ? "bg-slate-950/95 backdrop-blur-xl border-b border-slate-800"
           : "bg-transparent"
       }`}
@@ -103,7 +103,7 @@ export default function Header() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md shadow-cyan-500/20 whitespace-nowrap"
+              className="bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md shadow-cyan-500/20 whitespace-nowrap"
             >
               {t.header.cta}
             </a>

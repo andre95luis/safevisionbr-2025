@@ -21,10 +21,10 @@ export default function ContactSection() {
           className="text-center mb-16"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" as const }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-cyan-400">
             {t.contact.title}
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
@@ -38,10 +38,10 @@ export default function ContactSection() {
             return (
               <motion.div
                 key={title}
-                className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 text-center hover:bg-slate-800/80 hover:border-cyan-500/50 transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: (index + 1) * 0.1, ease: "easeOut" as const }}
+                className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 text-center hover:bg-slate-800/80 hover:border-cyan-500/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.5, delay: (index + 1) * 0.1, ease: [0.16, 1, 0.3, 1] as const }}
                 viewport={{ once: true, amount: 0.3 }}
               >
                 <div className="bg-cyan-500/10 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
@@ -66,16 +66,16 @@ export default function ContactSection() {
 
         <motion.div
           className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" as const }}
+          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
           viewport={{ once: true, amount: 0.3 }}
         >
           <a
             href={WHATSAPP_QUOTE_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
+            className="inline-block bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
           >
             {t.contact.cta}
           </a>

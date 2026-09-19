@@ -70,8 +70,8 @@ const stagger: Variants = {
 };
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+  hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
 };
 
 export default function LinksPage() {
@@ -90,7 +90,7 @@ export default function LinksPage() {
         <motion.div
           initial={{ opacity: 0, scale: 0.92, y: -10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" as const }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
         >
           <Image
             src="/Logo Safe Vision-png-menor-branco-03.png"
@@ -106,9 +106,9 @@ export default function LinksPage() {
         {/* Tagline */}
         <motion.div
           className="text-center"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" as const }}
+          initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] as const }}
         >
           <p className="text-white font-semibold text-sm leading-snug mb-1">
             Segurança, redes, elétrica, sonorização e TI.
@@ -142,9 +142,9 @@ export default function LinksPage() {
           target="_blank"
           rel="noopener noreferrer"
           className="relative w-full flex items-center gap-3 rounded-2xl bg-green-500 px-5 py-4 shadow-lg shadow-green-500/20 overflow-hidden"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" as const }}
+          initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.5, delay: 0.35, ease: [0.16, 1, 0.3, 1] as const }}
           whileHover={{ scale: 1.02, boxShadow: "0 8px 32px rgba(34,197,94,0.30)" }}
           whileTap={{ scale: 0.97 }}
         >

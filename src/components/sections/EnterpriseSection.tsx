@@ -17,9 +17,9 @@ export default function EnterpriseSection() {
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" as const }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
           viewport={{ once: true }}
         >
           <div className="flex justify-center mb-4">
@@ -30,7 +30,7 @@ export default function EnterpriseSection() {
               </span>
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-cyan-400">
             {t.enterprise.title}
           </h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
@@ -44,18 +44,18 @@ export default function EnterpriseSection() {
               key={tier.name}
               className={`relative rounded-3xl p-8 flex flex-col ${
                 tier.highlighted
-                  ? "bg-gradient-to-b from-cyan-950/80 to-blue-950/60 border-2 border-cyan-500/50 shadow-xl shadow-cyan-500/10"
+                  ? "bg-cyan-950/70 border-2 border-cyan-500/50 shadow-xl shadow-cyan-500/10"
                   : "bg-slate-800/40 border border-slate-700/50"
               }`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" as const }}
+              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] as const }}
               viewport={{ once: true }}
               whileHover={{ y: -4, transition: { type: "spring", stiffness: 300, damping: 22 } }}
             >
               {tier.highlighted && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
+                  <span className="bg-cyan-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
                     Mais popular
                   </span>
                 </div>
@@ -91,7 +91,7 @@ export default function EnterpriseSection() {
                 rel="noopener noreferrer"
                 className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-sm transition-all ${
                   tier.highlighted
-                    ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/20"
+                    ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/20"
                     : "border border-slate-600 text-slate-300 hover:border-slate-400 hover:text-white"
                 }`}
                 whileHover={{ scale: 1.03 }}

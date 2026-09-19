@@ -15,9 +15,9 @@ export default function TrustBar() {
   const { t } = useLanguage();
 
   return (
-    <section className="border-y border-slate-800/60 bg-slate-900/30 py-6 overflow-hidden">
+    <section className="border-y border-slate-800/60 bg-slate-900/30 py-12 overflow-hidden">
       <div className="container mx-auto px-6">
-        <p className="text-center text-slate-400 text-xs font-medium tracking-widest uppercase mb-5">
+        <p className="text-center text-slate-400 text-xs font-medium tracking-widest uppercase mb-8">
           {t.trustBar.label}
         </p>
 
