@@ -191,7 +191,7 @@ export const pt: Dict = {
     title: "Você não quer só tecnologia. Quer uma parceira de verdade.",
     subtitle:
       "Há anos entregando soluções de TI com SLA definido para empresas em São Paulo.",
-    location: "São Paulo, SP · Desde 2020",
+    location: "São Paulo, SP",
     cardTitle1: "Tecnologia que garante",
     cardTitle2: "continuidade operacional.",
     cardDesc:
@@ -214,7 +214,6 @@ export const pt: Dict = {
     stats: [
       { suffix: "+", label: "Empresas atendidas" },
       { suffix: "/7", label: "Suporte" },
-      { suffix: "+", label: "Anos de mercado" },
       { suffix: "%", label: "Satisfação" },
     ],
     statsCaption:

@@ -191,7 +191,7 @@ export const en: Dict = {
     title: "You don't just want technology. You want a real partner.",
     subtitle:
       "Years of delivering managed IT solutions with defined SLA for businesses in São Paulo.",
-    location: "São Paulo, SP · Since 2020",
+    location: "São Paulo, SP",
     cardTitle1: "Technology that ensures",
     cardTitle2: "operational continuity.",
     cardDesc:
@@ -214,7 +214,6 @@ export const en: Dict = {
     stats: [
       { suffix: "+", label: "Businesses served" },
       { suffix: "/7", label: "Support" },
-      { suffix: "+", label: "Years in market" },
       { suffix: "%", label: "Satisfaction" },
     ],
     statsCaption: "Consistent results for businesses across Greater São Paulo",

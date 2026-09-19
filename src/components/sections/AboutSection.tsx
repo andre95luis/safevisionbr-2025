@@ -45,7 +45,7 @@ function CountUp({
   );
 }
 
-const statValues = [100, 24, 5, 100];
+const statValues = [100, 24, 100];
 const featureIcons = [Shield, CheckCircle2, Cpu];
 
 const cardBase =
@@ -141,7 +141,9 @@ export default function AboutSection() {
               {t.about.stats.map(({ suffix, label }, idx) => (
                 <div
                   key={label}
-                  className="bg-slate-900/60 border border-slate-700/40 rounded-2xl p-4 flex flex-col justify-center"
+                  className={`bg-slate-900/60 border border-slate-700/40 rounded-2xl p-4 flex flex-col justify-center ${
+                    idx === t.about.stats.length - 1 && t.about.stats.length % 2 === 1 ? "col-span-2" : ""
+                  }`}
                 >
                   <p className="text-2xl md:text-3xl font-bold text-cyan-400 mb-1 tabular-nums">
                     <CountUp target={statValues[idx]} suffix={suffix} inView={inView} />
