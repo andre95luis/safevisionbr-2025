@@ -55,7 +55,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      style={{ top: "var(--election-bar-h, 0px)" }}
+      className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
           ? "bg-slate-950/95 backdrop-blur-xl border-b border-slate-800"
           : "bg-transparent"

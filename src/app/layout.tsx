@@ -7,6 +7,7 @@ import Script from "next/script";
 const GA_MEASUREMENT_ID = "G-25HQDJSHS1";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import MotionProvider from "@/components/MotionProvider";
+import ElectionBar from "@/components/ElectionBar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -205,6 +206,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <LanguageProvider>
+          <ElectionBar />
           <MotionProvider>{children}</MotionProvider>
         </LanguageProvider>
         <SpeedInsights />
