@@ -1,17 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, ExternalLink, X } from "lucide-react";
 import { useLanguage } from "@/providers/LanguageProvider";
-import type { ApuracaoResponse } from "@/app/api/apuracao/route";
+import { useApuracao } from "@/hooks/useApuracao";
 
 const TSE_LINK =
   "https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/6258/uf/br/cargo/1/vis/nominal/resultados";
-
-const POLL_MS = 30_000;
-// Fechamento das urnas: 17h de Brasília (UTC-3) = 20h UTC
-const POLLS_CLOSE_UTC_HOUR = 20;
 
 const copy = {
   pt: {
@@ -19,7 +16,7 @@ const copy = {
     liveLabel: "Apuração ao vivo",
     sections: (pct: string) => `${pct}% das seções apuradas`,
     notStarted: "Urnas ainda abertas. A apuração começa após o fechamento, às 17h.",
-    cta: "Ver apuração",
+    cta: "Ver apuração completa",
     close: "Fechar barra",
     sourceLabel: "Fonte oficial: TSE",
     sourceCta: "Abrir no site do TSE",
@@ -30,7 +27,7 @@ const copy = {
     liveLabel: "Live results",
     sections: (pct: string) => `${pct}% of polling stations counted`,
     notStarted: "Polls still open. Counting starts once they close, at 5pm.",
-    cta: "See results",
+    cta: "See full results",
     close: "Close bar",
     sourceLabel: "Official source: TSE (Brazil's electoral court)",
     sourceCta: "Open on the TSE website",
@@ -38,29 +35,13 @@ const copy = {
   },
 } as const;
 
-function pollsClosed() {
-  return new Date().getUTCHours() >= POLLS_CLOSE_UTC_HOUR;
-}
-
 export default function ElectionBar() {
   const { locale } = useLanguage();
   const t = copy[locale] ?? copy.pt;
   const rowRef = useRef<HTMLDivElement>(null);
+  const { data, closed, ready } = useApuracao();
   const [dismissed, setDismissed] = useState(false);
-  const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
-  const [data, setData] = useState<ApuracaoResponse | null>(null);
-  const [closed, setClosed] = useState(false);
-
-  const fetchData = useCallback(async () => {
-    try {
-      const res = await fetch("/api/apuracao");
-      const json: ApuracaoResponse = await res.json();
-      setData(json);
-    } catch {
-      setData((d) => d ?? { ok: false, atualizadoEm: null, secoesApuradasPct: null, comparecimentoPct: null, candidatos: [], fonte: TSE_LINK });
-    }
-  }, []);
 
   useEffect(() => {
     try {
@@ -68,18 +49,7 @@ export default function ElectionBar() {
     } catch {
       // ignore
     }
-    setClosed(pollsClosed());
-    setReady(true);
-    const clockId = setInterval(() => setClosed(pollsClosed()), 60_000);
-    return () => clearInterval(clockId);
   }, []);
-
-  useEffect(() => {
-    if (!closed) return;
-    fetchData();
-    const id = setInterval(fetchData, POLL_MS);
-    return () => clearInterval(id);
-  }, [closed, fetchData]);
 
   // Publica a altura real da barra para o Header (fixed) abrir espaço embaixo dela.
   useEffect(() => {
@@ -134,15 +104,12 @@ export default function ElectionBar() {
             />
           </button>
 
-          <a
-            href={TSE_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/apuracao"
             className="hidden sm:flex items-center gap-1 text-cyan-400 hover:text-cyan-300 font-medium shrink-0"
           >
             {t.cta}
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+          </Link>
 
           <button
             onClick={handleDismiss}
@@ -187,17 +154,22 @@ export default function ElectionBar() {
                 </div>
               )}
 
-              <div className="mt-4 flex items-center justify-between text-xs text-slate-500">
+              <div className="mt-4 flex items-center justify-between text-xs text-slate-500 gap-4">
                 <span>{t.sourceLabel}</span>
-                <a
-                  href={TSE_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-cyan-400 hover:text-cyan-300"
-                >
-                  {t.sourceCta}
-                  <ExternalLink className="w-3 h-3" />
-                </a>
+                <div className="flex items-center gap-4 shrink-0">
+                  <Link href="/apuracao" className="text-cyan-400 hover:text-cyan-300 font-medium">
+                    {t.cta} →
+                  </Link>
+                  <a
+                    href={TSE_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-slate-500 hover:text-slate-300"
+                  >
+                    {t.sourceCta}
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
