@@ -25,30 +25,34 @@ export async function buildOgImage(title: string, subtitle: string) {
           justifyContent: "center",
           backgroundColor: "#020617",
           backgroundImage:
-            "radial-gradient(circle at 50% 30%, rgba(34,211,238,0.14), transparent 60%)",
+            "radial-gradient(circle at 50% 30%, rgba(34,211,238,0.18), transparent 60%)",
+          padding: "0 64px",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logoSrc} width={200} height={200} alt="" />
+        <img src={logoSrc} width={320} height={320} alt="" />
         <div
           style={{
-            marginTop: 24,
-            fontSize: 30,
+            marginTop: 20,
+            fontSize: 50,
             fontWeight: 700,
             color: "#f8fafc",
             letterSpacing: "-0.01em",
             textAlign: "center",
+            lineHeight: 1.15,
+            maxWidth: 1000,
           }}
         >
           {title}
         </div>
         <div
           style={{
-            marginTop: 14,
-            fontSize: 22,
+            marginTop: 20,
+            fontSize: 30,
             color: "#22d3ee",
             letterSpacing: "0.04em",
             textTransform: "uppercase",
+            textAlign: "center",
           }}
         >
           {subtitle}
