@@ -14,7 +14,7 @@ const copy = {
     title: "A mesma atenção que colocamos aqui, colocamos em cada instalação.",
     body: "Essa apuração em tempo real não é um widget pronto — foi integrada do zero, direto da fonte oficial, no ar em poucas horas. É o mesmo cuidado técnico que a Safe Vision aplica em cada câmera, cada ponto de rede e cada automação que entrega: feito com atenção, sem gambiarra, funcionando de verdade.",
     proof: [
-      { k: "5.0", v: "nota no Google, com avaliações reais" },
+      { k: "5.0", v: "única nota 5.0 no Google da região" },
       { k: "100+", v: "empresas e residências atendidas" },
       { k: "2h", v: "tempo médio de resposta" },
     ],
@@ -31,7 +31,7 @@ const copy = {
     title: "The same care we put into this, we put into every installation.",
     body: "This live results feed isn't an off-the-shelf widget — it was built from scratch, straight from the official source, live in a few hours. That's the same technical care Safe Vision applies to every camera, network point and automation we deliver: built with attention, no shortcuts, actually working.",
     proof: [
-      { k: "5.0", v: "rating on Google, from real reviews" },
+      { k: "5.0", v: "the only 5.0-rated company on Google in the region" },
       { k: "100+", v: "businesses and homes served" },
       { k: "2h", v: "average response time" },
     ],

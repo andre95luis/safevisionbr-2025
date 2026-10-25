@@ -1,9 +1,25 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-// Presidente, 2º turno 2026. Código oficial confirmado em
-// resultados.tse.jus.br/oficial/app/index.html#/eleicao/6258/uf/br/cargo/1/vis/nominal/resultados
-const TSE_URL =
-  "https://resultados.tse.jus.br/oficial/ele2026/6258/dados/br/br-c0001-e006258-u.jws";
+// Presidente da República 2026. Códigos oficiais confirmados clicando no
+// seletor de turno dentro de resultados.tse.jus.br/oficial/app (1º: 6257,
+// 2º: 6258 — sequenciais, mesma eleição).
+const ELECTIONS: Record<"1" | "2", { codigo: string; fonte: string }> = {
+  "1": {
+    codigo: "6257",
+    fonte:
+      "https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/6257/uf/br/cargo/1/vis/nominal/resultados",
+  },
+  "2": {
+    codigo: "6258",
+    fonte:
+      "https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/6258/uf/br/cargo/1/vis/nominal/resultados",
+  },
+};
+
+function tseUrl(codigo: string) {
+  const padded = codigo.padStart(6, "0");
+  return `https://resultados.tse.jus.br/oficial/ele2026/${codigo}/dados/br/br-c0001-e${padded}-u.jws`;
+}
 
 export const dynamic = "force-dynamic";
 
@@ -66,16 +82,21 @@ function decodeJwsPayload(jws: string): TsePayload {
   return JSON.parse(json) as TsePayload;
 }
 
-let cache: { at: number; data: ApuracaoResponse } | null = null;
+const cache = new Map<string, { at: number; data: ApuracaoResponse }>();
 const CACHE_MS = 30_000;
 
-export async function GET() {
-  if (cache && Date.now() - cache.at < CACHE_MS) {
-    return NextResponse.json(cache.data);
+export async function GET(req: NextRequest) {
+  const turnoParam = req.nextUrl.searchParams.get("turno");
+  const turno: "1" | "2" = turnoParam === "1" ? "1" : "2";
+  const { codigo, fonte } = ELECTIONS[turno];
+
+  const cached = cache.get(turno);
+  if (cached && Date.now() - cached.at < CACHE_MS) {
+    return NextResponse.json(cached.data);
   }
 
   try {
-    const res = await fetch(`${TSE_URL}?nocache=${Date.now()}`, {
+    const res = await fetch(`${tseUrl(codigo)}?nocache=${Date.now()}`, {
       headers: { "User-Agent": "Mozilla/5.0 (SafeVisionBR)" },
       cache: "no-store",
       signal: AbortSignal.timeout(8000),
@@ -108,10 +129,10 @@ export async function GET() {
       secoesApuradasPct: payload.s?.pst ?? null,
       comparecimentoPct: payload.e?.pest ?? null,
       candidatos,
-      fonte: "https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/6258/uf/br/cargo/1/vis/nominal/resultados",
+      fonte,
     };
 
-    cache = { at: Date.now(), data };
+    cache.set(turno, { at: Date.now(), data });
     return NextResponse.json(data);
   } catch (err) {
     const fallback: ApuracaoResponse = {
@@ -120,7 +141,7 @@ export async function GET() {
       secoesApuradasPct: null,
       comparecimentoPct: null,
       candidatos: [],
-      fonte: "https://resultados.tse.jus.br/oficial/app/index.html#/eleicao/6258/uf/br/cargo/1/vis/nominal/resultados",
+      fonte,
     };
     console.error("apuracao proxy error:", err);
     return NextResponse.json(fallback, { status: 200 });

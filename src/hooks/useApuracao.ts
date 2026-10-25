@@ -11,7 +11,9 @@ export function pollsClosed() {
   return new Date().getUTCHours() >= POLLS_CLOSE_UTC_HOUR;
 }
 
-export function useApuracao() {
+export type Turno = "1" | "2";
+
+export function useApuracao(turno: Turno = "2") {
   const [data, setData] = useState<ApuracaoResponse | null>(null);
   const [closed, setClosed] = useState(false);
   const [ready, setReady] = useState(false);
@@ -23,12 +25,16 @@ export function useApuracao() {
     return () => clearInterval(clockId);
   }, []);
 
+  // 1º turno já é resultado final (100% apurado) — basta uma busca, sem polling.
+  // 2º turno só começa a fazer sentido buscar depois que as urnas fecham.
+  const shouldFetch = turno === "1" || closed;
+
   useEffect(() => {
-    if (!closed) return;
+    if (!shouldFetch) return;
     let cancelled = false;
     const fetchData = async () => {
       try {
-        const res = await fetch("/api/apuracao");
+        const res = await fetch(`/api/apuracao?turno=${turno}`);
         const json: ApuracaoResponse = await res.json();
         if (!cancelled) setData(json);
       } catch {
@@ -36,12 +42,17 @@ export function useApuracao() {
       }
     };
     fetchData();
-    const id = setInterval(fetchData, POLL_MS);
+    if (turno === "2") {
+      const id = setInterval(fetchData, POLL_MS);
+      return () => {
+        cancelled = true;
+        clearInterval(id);
+      };
+    }
     return () => {
       cancelled = true;
-      clearInterval(id);
     };
-  }, [closed]);
+  }, [shouldFetch, turno]);
 
   return { data, closed, ready };
 }
