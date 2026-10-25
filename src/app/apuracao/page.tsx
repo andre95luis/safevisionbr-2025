@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ElectionResults from "@/components/ElectionResults";
+import ElectionProof from "@/components/ElectionProof";
 import TrustBar from "@/components/sections/TrustBar";
 import ServicesSection from "@/components/sections/ServicesSection";
 import EnterpriseSection from "@/components/sections/EnterpriseSection";
@@ -26,6 +27,7 @@ export default function ApuracaoPage() {
       <Header />
       <main>
         <ElectionResults />
+        <ElectionProof />
         <TrustBar />
         <ServicesSection />
         <EnterpriseSection />
