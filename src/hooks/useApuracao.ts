@@ -4,11 +4,17 @@ import { useEffect, useState } from "react";
 import type { ApuracaoResponse } from "@/app/api/apuracao/route";
 
 const POLL_MS = 30_000;
-// Fechamento das urnas: 17h de Brasília (UTC-3) = 20h UTC
-const POLLS_CLOSE_UTC_HOUR = 20;
+// Fechamento das urnas: 17h de Brasília. Brasília é sempre UTC-3 (sem
+// horário de verão desde 2019) — não dá pra comparar só a hora UTC
+// isolada (getUTCHours()), porque ela "zera" à meia-noite UTC, que cai
+// no meio da noite de Brasília (21h). Em vez disso, desloca o instante
+// inteiro em -3h e só então olha a hora resultante.
+const BRASILIA_OFFSET_MS = 3 * 60 * 60 * 1000;
+const POLLS_CLOSE_HOUR = 17;
 
 export function pollsClosed() {
-  return new Date().getUTCHours() >= POLLS_CLOSE_UTC_HOUR;
+  const brasiliaNow = new Date(Date.now() - BRASILIA_OFFSET_MS);
+  return brasiliaNow.getUTCHours() >= POLLS_CLOSE_HOUR;
 }
 
 export type Turno = "1" | "2";
