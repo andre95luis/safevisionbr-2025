@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Safe Vision BR",
   },
   description:
-    "Câmeras de segurança, cabeamento estruturado, WiFi Mesh e automação IoT em São Paulo. Mais de 100 projetos realizados. Atendimento em até 2h. Solicite seu orçamento gratuito.",
+    "Câmeras de segurança, cabeamento estruturado, WiFi Mesh e automação IoT em São Paulo. Inúmeros projetos realizados. Atendimento em até 2h. Solicite seu orçamento gratuito.",
   keywords: [
     "segurança eletrônica São Paulo",
     "cabeamento estruturado",
@@ -67,13 +67,13 @@ export const metadata: Metadata = {
     title:
       "Safe Vision BR | Segurança Eletrônica, WiFi Mesh e Automação IoT em São Paulo",
     description:
-      "Câmeras de segurança, cabeamento estruturado, WiFi Mesh e automação IoT em São Paulo. Mais de 100 projetos realizados. Solicite seu orçamento gratuito.",
+      "Câmeras de segurança, cabeamento estruturado, WiFi Mesh e automação IoT em São Paulo. Inúmeros projetos realizados. Solicite seu orçamento gratuito.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Safe Vision BR | Segurança Eletrônica e Automação IoT em São Paulo",
     description:
-      "Câmeras de segurança, cabeamento estruturado, WiFi Mesh e automação IoT em São Paulo. Mais de 100 projetos. Atendimento em até 2h.",
+      "Câmeras de segurança, cabeamento estruturado, WiFi Mesh e automação IoT em São Paulo. Inúmeros projetos. Atendimento em até 2h.",
   },
   alternates: {
     canonical: siteUrl,

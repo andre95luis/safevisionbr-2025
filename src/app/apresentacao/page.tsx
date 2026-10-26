@@ -287,7 +287,7 @@ export default function ApresentacaoPage() {
             </span>
             <span className="flex items-center gap-1.5">
               <Users className="w-3.5 h-3.5 text-cyan-400" />
-              100+ projetos entregues
+              Inúmeros projetos entregues
             </span>
             <span className="flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5 text-cyan-400" />

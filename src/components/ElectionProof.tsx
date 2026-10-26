@@ -15,7 +15,7 @@ const copy = {
     body: "Esta página consome, em tempo real, os dados oficiais e criptografados do TSE — a mesma fonte usada pelos grandes veículos de imprensa — e foi projetada, integrada e publicada no mesmo dia. É o mesmo padrão de engenharia que a Safe Vision aplica em cada projeto: do som de uma igreja à rede de uma empresa, da câmera de uma residência à automação de uma escola.",
     proof: [
       { k: "5.0", v: "única empresa do setor com nota 5.0 no Google na região" },
-      { k: "100+", v: "projetos entregues em São Paulo e região" },
+      { k: "Inúmeros", v: "projetos entregues em São Paulo e região" },
       { k: "2h", v: "tempo médio de primeira resposta" },
     ],
     quoteCta: "Solicitar uma cotação",
@@ -32,7 +32,7 @@ const copy = {
     body: "This page pulls, in real time, the official, cryptographically signed data feed from Brazil's electoral court — the same source major newsrooms use — and was designed, integrated and shipped the same day. That's the engineering standard Safe Vision applies to every project: from a church's sound system to a company's network, from a home's cameras to a school's automation.",
     proof: [
       { k: "5.0", v: "the only 5.0-rated company in the sector, in the region" },
-      { k: "100+", v: "projects delivered across São Paulo" },
+      { k: "Countless", v: "projects delivered across São Paulo" },
       { k: "2h", v: "average time to first response" },
     ],
     quoteCta: "Request a quote",
