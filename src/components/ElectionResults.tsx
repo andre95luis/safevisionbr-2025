@@ -14,8 +14,10 @@ const copy = {
     eyebrow: "Presidente da República · 2026",
     tab1: "1º turno · 05/10",
     tab2: "2º turno · ao vivo",
+    tab2Final: "2º turno · 26/10",
     title: "Apuração ao vivo",
     title1: "Resultado do 1º turno",
+    title2: "Resultado do 2º turno",
     votingTitle: "As urnas ainda estão abertas",
     votingBody:
       "A votação segue até as 17h (horário de Brasília). Assim que as urnas fecharem, os números abaixo são atualizados automaticamente, em tempo real.",
@@ -33,8 +35,10 @@ const copy = {
     eyebrow: "President of Brazil · 2026",
     tab1: "1st round · Oct 5",
     tab2: "2nd round · live",
+    tab2Final: "2nd round · Oct 26",
     title: "Live results",
     title1: "1st round results",
+    title2: "2nd round results",
     votingTitle: "Polls are still open",
     votingBody:
       "Voting runs until 5pm (Brasília time). Once the polls close, the numbers below update automatically in real time.",
@@ -71,6 +75,9 @@ export default function ElectionResults() {
   // 1º turno é resultado final e fechado; a janela de "urnas abertas" só existe no 2º.
   const showVotingCard = turno === "2" && ready && !closed;
   const showResults = turno === "1" ? ready && data?.ok : ready && closed && data?.ok;
+  // 100% das seções apuradas = resultado definitivo, não "ao vivo" mais
+  // (1º turno sempre foi final; 2º vira final assim que a apuração acaba).
+  const isFinal = turno === "1" || secoesPct >= 100;
 
   return (
     <section className="relative bg-slate-950 pt-28 pb-10 md:pt-36 md:pb-14">
@@ -83,7 +90,9 @@ export default function ElectionResults() {
         >
           <div className="flex items-center gap-2 mb-4">
             <span className="relative flex h-2.5 w-2.5 shrink-0">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+              {!isFinal && (
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+              )}
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400" />
             </span>
             <span className="text-cyan-400 text-sm font-medium tracking-wide uppercase">
@@ -92,7 +101,7 @@ export default function ElectionResults() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-white">
-            {turno === "1" ? t.title1 : t.title}
+            {turno === "1" ? t.title1 : isFinal ? t.title2 : t.title}
           </h1>
 
           <div className="mt-6 inline-flex rounded-full border border-slate-800 bg-slate-900/60 p-1">
@@ -107,7 +116,7 @@ export default function ElectionResults() {
                     : "text-slate-400 hover:text-white"
                 }`}
               >
-                {v === "1" ? t.tab1 : t.tab2}
+                {v === "1" ? t.tab1 : isFinal ? t.tab2Final : t.tab2}
               </button>
             ))}
           </div>

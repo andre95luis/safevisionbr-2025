@@ -14,6 +14,7 @@ const copy = {
   pt: {
     votingLabel: "2º turno das eleições — votação até 17h",
     liveLabel: "Apuração ao vivo",
+    finalLabel: "Resultado final",
     sections: (pct: string) => `${pct}% das seções apuradas`,
     notStarted: "Urnas ainda abertas. A apuração começa após o fechamento, às 17h.",
     cta: "Ver apuração completa",
@@ -25,6 +26,7 @@ const copy = {
   en: {
     votingLabel: "Brazil's presidential runoff — polls open until 5pm",
     liveLabel: "Live results",
+    finalLabel: "Final result",
     sections: (pct: string) => `${pct}% of polling stations counted`,
     notStarted: "Polls still open. Counting starts once they close, at 5pm.",
     cta: "See full results",
@@ -77,13 +79,17 @@ export default function ElectionBar() {
 
   const pct = data?.secoesApuradasPct;
   const hasVotes = closed && pct && Number(pct.replace(",", ".")) > 0;
+  const isFinal = Boolean(pct && Number(pct.replace(",", ".")) >= 100);
+  const statusLabel = isFinal ? t.finalLabel : t.liveLabel;
 
   return (
     <div className="fixed top-0 inset-x-0 z-[70]" aria-live="polite">
       <div ref={rowRef} className="bg-slate-900 border-b border-slate-800 text-sm">
         <div className="container mx-auto px-6 py-2 flex items-center gap-3">
           <span className="relative flex h-2 w-2 shrink-0">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+            {!isFinal && (
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+            )}
             <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
           </span>
 
@@ -94,9 +100,9 @@ export default function ElectionBar() {
           >
             <span className="truncate">
               {hasVotes
-                ? `${t.liveLabel} · ${t.sections(pct!)}`
+                ? `${statusLabel} · ${t.sections(pct!)}`
                 : closed
-                  ? t.liveLabel
+                  ? statusLabel
                   : t.votingLabel}
             </span>
             <ChevronDown

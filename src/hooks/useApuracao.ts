@@ -4,17 +4,15 @@ import { useEffect, useState } from "react";
 import type { ApuracaoResponse } from "@/app/api/apuracao/route";
 
 const POLL_MS = 30_000;
-// Fechamento das urnas: 17h de Brasília. Brasília é sempre UTC-3 (sem
-// horário de verão desde 2019) — não dá pra comparar só a hora UTC
-// isolada (getUTCHours()), porque ela "zera" à meia-noite UTC, que cai
-// no meio da noite de Brasília (21h). Em vez disso, desloca o instante
-// inteiro em -3h e só então olha a hora resultante.
-const BRASILIA_OFFSET_MS = 3 * 60 * 60 * 1000;
-const POLLS_CLOSE_HOUR = 17;
+// Fechamento das urnas: 17h de Brasília em 25/10/2026 = 20h UTC no mesmo
+// dia. Instante absoluto, não "hora do dia" — uma comparação por hora
+// isolada (getHours/getUTCHours) volta a ficar verdadeira toda
+// madrugada seguinte, pra sempre, porque não sabe em que DIA está. Com
+// timestamp fixo, uma vez fechado fica fechado definitivamente.
+const POLLS_CLOSE_AT = Date.parse("2026-10-25T20:00:00Z");
 
 export function pollsClosed() {
-  const brasiliaNow = new Date(Date.now() - BRASILIA_OFFSET_MS);
-  return brasiliaNow.getUTCHours() >= POLLS_CLOSE_HOUR;
+  return Date.now() >= POLLS_CLOSE_AT;
 }
 
 export type Turno = "1" | "2";
@@ -38,21 +36,33 @@ export function useApuracao(turno: Turno = "2") {
   useEffect(() => {
     if (!shouldFetch) return;
     let cancelled = false;
+    let intervalId: ReturnType<typeof setInterval> | undefined;
+
+    const isFinal = (json: ApuracaoResponse) =>
+      Number((json.secoesApuradasPct ?? "0").replace(",", ".")) >= 100;
+
     const fetchData = async () => {
       try {
         const res = await fetch(`/api/apuracao?turno=${turno}`);
         const json: ApuracaoResponse = await res.json();
-        if (!cancelled) setData(json);
+        if (cancelled) return;
+        setData(json);
+        // Apuração encerrada (100% das seções): vira resultado final, como
+        // o 1º turno — para o polling em vez de continuar martelando.
+        if (json.ok && isFinal(json) && intervalId) {
+          clearInterval(intervalId);
+          intervalId = undefined;
+        }
       } catch {
         // mantém o último dado bom; não derruba a UI
       }
     };
     fetchData();
     if (turno === "2") {
-      const id = setInterval(fetchData, POLL_MS);
+      intervalId = setInterval(fetchData, POLL_MS);
       return () => {
         cancelled = true;
-        clearInterval(id);
+        if (intervalId) clearInterval(intervalId);
       };
     }
     return () => {
